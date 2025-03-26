@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ER Diagram" id="ER-Example">
+    <mxGraphModel dx="1088" dy="609" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Admin -->
+        <mxCell id="admin" value="Admin&#xa;admin_id (PK)&#xa;name" style="shape=swimlane;childLayout=stackLayout;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- User -->
+        <mxCell id="user" value="User&#xa;user_id (PK)&#xa;name&#xa;email&#xa;added_by_admin_id (FK)" style="shape=swimlane;childLayout=stackLayout;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Message -->
+        <mxCell id="message" value="Message&#xa;message_id (PK)&#xa;content&#xa;timestamp&#xa;user_id (FK)" style="shape=swimlane;childLayout=stackLayout;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="200" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Bot_Response -->
+        <mxCell id="response" value="Bot_Response&#xa;response_id (PK)&#xa;content&#xa;timestamp&#xa;message_id (FK)" style="shape=swimlane;childLayout=stackLayout;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="200" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Function -->
+        <mxCell id="function" value="Function&#xa;function_id (PK)&#xa;name&#xa;description" style="shape=swimlane;childLayout=stackLayout;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="40" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- User_Function -->
+        <mxCell id="user_function" value="User_Function&#xa;user_id (FK)&#xa;function_id (FK)" style="shape=swimlane;childLayout=stackLayout;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="760" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="r1" style="endArrow=block;endFill=1;" edge="1" parent="1" source="admin" target="user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" style="endArrow=block;endFill=1;" edge="1" parent="1" source="user" target="message">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" style="endArrow=block;endFill=1;" edge="1" parent="1" source="message" target="response">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" style="endArrow=block;endFill=1;" edge="1" parent="1" source="user" target="user_function">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" style="endArrow=block;endFill=1;" edge="1" parent="1" source="function" target="user_function">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
